@@ -1,87 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile_Prg</title>
+    <title>Mobile Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
 </head>
-<style>
-    .main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 30px;
-        padding-bottom: 30px;
-        border: 2px solid black;
-    }
-</style>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="html/task1.html">Task 1</a></li>
+            <li><a href="html/task2.html">Task 2</a></li>
+        </ul>
+    </nav>
+
     <div class="main">
-        <div id="heading1">
-            <h1>Hello, World!</h1>
+        <h1>Arithmetic Calculator</h1>
+        <div class=box>
+            <div class="input-container">
+                <input type="number" id="num1" placeholder="Enter first number"> <br>
+                <input type="number" id="num2" placeholder="Enter second number">
+            </div>
+            <div class="operation-buttons">
+                <!-- <button onclick="add()">Add</button>
+            <button onclick="subtract()">Subtract</button><br>
+            <button onclick="multiply()">Multiply</button>
+            <button onclick="divide()">Divide</button><br> -->
+
+                <button onclick="calculate('+')">Add</button>
+                <button onclick="calculate('-')">Subtract</button> <br>
+                <button onclick="calculate('*')">Multiply</button>
+                <button onclick="calculate('/')">Divide</button>
+            </div>
         </div>
-        <button type="button" onclick="document.getElementById('heading1').innerHTML='Good Morning'">Click To show Good Morning</button>
-    </div>
-     <div class="main">
-        <div id="heading2">
-            <h1>Heading 2</h1>
+        <div class="result">
+            <p id="resultText"></p>
         </div>
-        <button type="button" onclick="document.getElementById('heading2').style.display='none'">Click To hide Heading 2</button>
+
     </div>
-     <div class="main">
-        <div id="heading3" style="display: none;">
-            <h1 >Heading 3</h1>
-        </div>
-        <button type="button" onclick="document.getElementById('heading3').style.display='block'">Click To view Heading3</button>
-    </div>
-     <div class="main">
-        <button type="button" onclick="document.getElementById('heading4').src='pic_bulbon.gif'">Turn On Lightbulb</button>
-        
-            <img src="pic_bulboff.gif" alt="Image" id="heading4" width="150px" height="200px">
-        
-        <button type="button" onclick="document.getElementById('heading4').src='pic_bulboff.gif'">Turn Off Lightbulb</button>
-    </div>
-     <div class="main" id="main5"> 
-        <div>
-            <h1>Heading 5</h1>
-        </div>
-        <button type="button" onclick="document.getElementById('main5').style.backgroundColor='lightblue'">Click To change Backround Color</button>
-    </div>
-     <div class="main">
-        <div>
-            <h1 id="heading6">Heading 6</h1>
-        </div>
-        <button type="button" onclick="document.getElementById('heading6').style.color='red'">Click To change Text color</button>
-    </div>
-     <div class="main">
-        <div id="heading7">
-            <h1>Heading 7</h1>
-        </div>
-        <button>Click Me!</button>
-    </div>
-     <div class="main">
-        <div id="heading8">
-            <h1>Heading 8</h1>
-        </div>
-        <button>Click Me!</button>
-    </div>
-     <div class="main">
-        <div id="heading9">
-            <h1>Heading 9</h1>
-        </div>
-        <button>Click Me!</button>
-    </div>
-     <div class="main">
-        <div id="heading10">
-            <h1>Heading 10</h1>
-        </div>
-        <button>Click Me!</button>
-    </div>
+
 </body>
 
-<script>
-    
-</script>
 </html>

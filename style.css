@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    width: 100%;
+    background-color: rgb(48, 67, 61);
+    padding: 0px;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    padding: 20px;
+}
+
+nav ul li{
+    margin: 0 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+input{
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+button{
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    background-color: rgb(48, 67, 61);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* -------------Marks Calculator -------------- */
+
+#marks_calculator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#main_area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 30px 70px;
+    background-color: rgb(151, 153, 152);
+    border-radius: 10px;
+}
+
+/* ---------- Arithmetic Calculator ---------- */
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 30px 70px;
+    background-color: rgb(196, 198, 197);
+    border-radius: 10px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.operation-buttons{
+    align-items: center;
+}

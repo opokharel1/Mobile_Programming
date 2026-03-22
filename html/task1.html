@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile_Prg</title>
+</head>
+<style>
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 30px;
+        padding-bottom: 30px;
+        border: 2px solid black;
+    }
+    #heading7{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div id="heading1">
+            <h1>Hello, World!</h1>
+        </div>
+        <button type="button" onclick="document.getElementById('heading1').innerHTML='Good Morning'">Click To show Good Morning</button>
+    </div>
+     <div class="main">
+        <div id="heading2">
+            <h1>Heading 2</h1>
+        </div>
+        <button type="button" onclick="document.getElementById('heading2').style.display='none'">Click To hide Heading 2</button>
+    </div>
+     <div class="main">
+        <div id="heading3" style="display: none;">
+            <h1 >Heading 3</h1>
+        </div>
+        <button type="button" onclick="document.getElementById('heading3').style.display='block'">Click To view Heading3</button>
+    </div>
+     <div class="main">
+        <button type="button" onclick="document.getElementById('heading4').src='pic_bulbon.gif'">Turn On Lightbulb</button>
+        
+            <img src="pic_bulboff.gif" alt="Image" id="heading4" width="150px" height="200px">
+        
+        <button type="button" onclick="document.getElementById('heading4').src='pic_bulboff.gif'">Turn Off Lightbulb</button>
+    </div>
+     <div class="main" id="main5"> 
+        <div>
+            <h1>Heading 5</h1>
+        </div>
+        <button type="button" onclick="document.getElementById('main5').style.backgroundColor='lightblue'">Click To change Backround Color</button>
+    </div>
+     <div class="main">
+        <div>
+            <h1 id="heading6">Heading 6</h1>
+        </div>
+        <button type="button" onclick="document.getElementById('heading6').style.color='red'">Click To change Text color</button>
+    </div>
+     <div class="main">
+        <div id="heading7">
+            <h1>Heading 7</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span id="span7"> soluta architecto consequatur dolorum? </span>Commodi reiciendis reprehenderit eos dolorem, sint pariatur, fugit cumque officiis dolore voluptates beatae ea ratione impedit dolor?</p>
+        </div>
+        <button type="button" onclick="document.getElementById('span7').style.color='blue'">Click To change Span Text color</button>
+    </div>
+     <div class="main">
+        <div id="heading8">
+            <h1>Heading 8</h1>
+        </div>
+        <button>Click to Open Google</button>
+    </div>
+     <div class="main">
+        <div id="heading9">
+            <h1>Heading 9</h1>
+        </div>
+        <button>Click Me!</button>
+    </div>
+     <div class="main">
+        <div id="heading10">
+            <h1>Heading 10</h1>
+        </div>
+        <button>Click Me!</button>
+    </div>
+</body>
+
+<script>
+    
+</script>
+</html>
