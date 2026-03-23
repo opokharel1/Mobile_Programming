@@ -62,7 +62,7 @@ function calculate() {
 // }
 
 
-function calculate(operator) {
+function calculate_nums(operator) {
     let num1 = Number(document.getElementById("num1").value);
     let num2 = Number(document.getElementById("num2").value);
     let result;

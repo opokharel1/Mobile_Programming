@@ -6,7 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Programming</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Hide").click(function () {
+                $("h1").hide();
+            });
+        });
+        $(document).ready(function () {
+            $("#Show").click(function () {
+                $("h1").show();
+            });
+        });
+        $(document).ready(function () {
+            $("#ChangeCSS").click(function () {
+                $("h1").css("color", "blue");
+            });
+        });
+
+    </script>
 
 </head>
 
@@ -15,32 +33,16 @@
         <ul>
             <li><a href="html/task1.html">Task 1</a></li>
             <li><a href="html/task2.html">Task 2</a></li>
+            <li><a href="html/task3.html">Task 3</a></li>
         </ul>
     </nav>
 
     <div class="main">
-        <h1>Arithmetic Calculator</h1>
-        <div class=box>
-            <div class="input-container">
-                <input type="number" id="num1" placeholder="Enter first number"> <br>
-                <input type="number" id="num2" placeholder="Enter second number">
-            </div>
-            <div class="operation-buttons">
-                <!-- <button onclick="add()">Add</button>
-            <button onclick="subtract()">Subtract</button><br>
-            <button onclick="multiply()">Multiply</button>
-            <button onclick="divide()">Divide</button><br> -->
+        <h1>Welcome to Mobile Programming</h1>
 
-                <button onclick="calculate('+')">Add</button>
-                <button onclick="calculate('-')">Subtract</button> <br>
-                <button onclick="calculate('*')">Multiply</button>
-                <button onclick="calculate('/')">Divide</button>
-            </div>
-        </div>
-        <div class="result">
-            <p id="resultText"></p>
-        </div>
-
+        <button id="Hide">Hide Title</button>
+        <button id="Show">Show Title</button>
+        <button id="ChangeCSS">Change CSS</button>
     </div>
 
 </body>
