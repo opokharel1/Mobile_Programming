@@ -9,28 +9,123 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("button").click(function () {
-                var div = $("#object");
-                // div.css("background-color", "lightcoral");
-                div.animate({ top: '300px', opacity: '0.4' }, "slow", function ($this) {
-                    div.css("background-color", "lightcoral");
-                });
-                div.animate({fontSize: '3em'}, "100");
-                div.animate({ left: '80%', opacity: '0.8' }, "slow", function ($this) {
-                    div.css("background-color", "orange");
-                });
-                div.animate({ top: '0px', opacity: '0.4' }, "slow", function ($this) {
-                    div.css("background-color", "yellow");
-                });
-                div.animate({fontSize: '1em'}, "100");
-                div.animate({ left: '0px', opacity: '0.8' }, "slow", function ($this) {
-                    div.css("background-color", "lightblue");
-                });
+
+            // --------- Get & Set ---------
+            $("#show-name").click(function () {
+                $("#output").text("Student Name: " + $("#student-name").text());
+            });
+            $("#change-name").click(function () {
+                $("#student-name").text("Option Pokharel");
+            })
+            $("#show-biography").click(function () {
+                $("#output").html($("#biography").html());
+            })
+            $("#get-input").click(function () {
+                $("#output").text("Nickname: " + $("#nickname-input").val());
+            })
+            $("#set-input").click(function () {
+                $("#nickname-input").val("jQuery Pro");
+            })
+
+            // --------- CSS Classes ---------
+            $("#highlight-card").click(function () {
+                $("#profile-card").addClass("highlight");
+            });
+            $("#remove-highlight").click(function () {
+                $("#profile-card").removeClass("highlight");
+            });
+            $("#toggle-dark-mode").click(function () {
+                $("#profile-card").toggleClass("dark-mode");
+            });
+            $("#toggle-rounded").click(function () {
+                $("#profile-photo").toggleClass("rounded");
+            });
+
+            // --------- CSS Method ---------
+            $("#red-background").click(function () {
+                $("#profile-card").css("background-color", "red");
+            });
+            $("#reset-background").click(function () {
+                $("#profile-card").css("background-color", "transparent");
+            });
+
+            // --------- Hide & Show ---------
+            $("#hide-photo").click(function () {
+                $("#profile-photo").hide("slow");
+            });
+            $("#show-photo").click(function () {
+                $("#profile-photo").show("slow");
+            });
+            $("#toggle-photo").click(function () {
+                $("#profile-photo").toggle();
+            });
+
+            // --------- Fade Effects ---------
+            $("#fade-out").click(function () {
+                $("#profile-photo").fadeOut("slow");
+            });
+            $("#fade-in").click(function () {
+                $("#profile-photo").fadeIn("slow");
+            });
+            $("#fade50").click(function () {
+                $("#profile-photo").fadeTo("slow", 0.5);
+            });
+
+            // --------- Slide Effects ---------
+            $("#slideUp").click(function () {
+                $("#skills-list").slideUp("slow");
+            });
+            $("#slideDown").click(function () {
+                $("#skills-list").slideDown("slow");
+            });
+            $("#slideToggle").click(function () {
+                $("#skills-list").slideToggle("slow");
+            });
+
+            // --------- Animate ---------
+            $("#animate").click(function () {
+                $("#profile-photo").animate({
+                    marginLeft: '200px',
+                }, "1000").animate({
+                    marginLeft: '50px',
+                }, "1000");
+            });
+
+            // --------- Mouse Events ---------
+            $("#profile-photo").mouseenter(function () {
+                $(this).addClass("shadow");
+            });
+
+            $("#profile-photo").mouseleave(function () {
+                $(this).removeClass("shadow");
+            });
+
+            // --------- Key Event ---------
+            $("#nickname-input").keypress(function (event) {
+                $("#output").text("Key Pressed: " + event.key);
             });
         });
 
     </script>
 
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .rounded {
+            border-radius: 25px;
+        }
+
+        .shadow {
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 
 <body>
@@ -40,15 +135,76 @@
             <li><a href="html/task2.html">Task 2</a></li>
             <li><a href="html/task3.html">Task 3</a></li>
             <li><a href="html/task4.html">Task 4</a></li>
+            <li><a href="html/task5.html">Task 5</a></li>
         </ul>
     </nav>
 
     <div class="main">
-        <button>Animate</button>
-    </div>
-        <div style="height: 150px; width: 150px; background-color: lightblue; position: relative; display: flex; align-items: center; justify-content: center;"  id="object">
-            <p>Hello</p>
+        <div id="get&set" style="border: 1px solid rgb(62, 13, 107); padding: 25px; margin-bottom: 20px;">
+            <p id="student-name">John Doe</p>
+            <p id="output" style="border: 2px solid black;"></p>
+            <p id="biography" style="display: none;">John Doe is a passionate mobile developer with
+                experience in creating <b>innovative</b> applications for various platforms.</p>
+
+            <input type="text" id="nickname-input" value="joe"> <br>
+
+
+            <button id="show-name">Show Name</button>
+            <button id="change-name">Change Name</button>
+            <button id="show-biography">Show Biography</button>
+            <button id="get-input">Get Input</button>
+            <button id="set-input">Set Input</button>
         </div>
+
+        <div id="css_classes" style="border: 1px solid rgb(62, 13, 107); padding: 25px; margin-bottom: 20px;">
+            <p id="profile-card">This is a simple profile card.</p>
+            <img src="images/pic_bulbon.gif" alt="profile-photo" id="profile-photo" style="border: 2px double black;">
+            <br>
+
+            <button id="highlight-card">Highlight Card</button>
+            <button id="remove-highlight">Remove Highlight</button>
+            <button id="toggle-dark-mode">Toggle Dark Mode</button>
+            <button id="toggle-rounded">Toggle Rounded </button>
+
+            <br>
+
+            <button id="red-background">Red Background</button>
+            <button id="reset-background">Reset Background</button>
+
+            <br>
+
+            <button id="hide-photo">Hide Photo</button>
+            <button id="show-photo">Show Photo</button>
+            <button id="toggle-photo">Toggle Photo</button>
+
+            <br>
+
+            <button id="fade-out">Fade Out</button>
+            <button id="fade-in">Fade In</button>
+            <button id="fade50">Fade to 50%</button>
+
+            <br>
+
+            <button id="animate">Animate</button>
+
+        </div>
+
+        <div id="get&set" style="border: 1px solid rgb(62, 13, 107); padding: 25px; margin-bottom: 20px;">
+
+            <ul id="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>jQuery</li>
+            </ul>
+
+            <button id="slideUp">Slide Up Skills</button>
+            <button id="slideDown">Slide Down Skills</button>
+            <button id="slideToggle">Toggle Slide Skills</button>
+
+        </div>
+
+    </div>
 
 </body>
 

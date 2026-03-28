@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Programming</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var div = $("#object");
+                // div.css("background-color", "lightcoral");
+                div.animate({ top: '300px', opacity: '0.4' }, "slow", function ($this) {
+                    div.css("background-color", "lightcoral");
+                });
+                div.animate({ fontSize: '3em' }, "100");
+                div.animate({ left: '80%', opacity: '0.8' }, "slow", function ($this) {
+                    div.css("background-color", "orange");
+                });
+                div.animate({ top: '0px', opacity: '0.4' }, "slow", function ($this) {
+                    div.css("background-color", "yellow");
+                });
+                div.animate({ fontSize: '1em' }, "100");
+                div.animate({ left: '0px', opacity: '0.8' }, "slow", function ($this) {
+                    div.css("background-color", "lightblue");
+                });
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <button>Animate</button>
+    </div>
+    <div style="height: 150px; width: 150px; background-color: lightblue; position: relative; display: flex; align-items: center; justify-content: center;"
+        id="object">
+        <p>Hello</p>
+    </div>
+
+</body>
+
+</html>
