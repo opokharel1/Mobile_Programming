@@ -22,20 +22,37 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+  const database = getDatabase(app);
 
 console.log(database);
 // const analytics = getAnalytics(app);
 
-function writeUserData(userId, firstName, lastName) {
+// function writeUserData(userId, firstName, lastName) {
+//   set(ref(database, 'users/' + userId), {
+//     firstName: firstName,
+//     lastName: lastName
+//   });      // this creates users/1
+// }
+
+// writeUserData(1, "John", "Doe");
+
+
+function writeUserData(userId, firstName, lastName, email, address, phone) {
   set(ref(database, 'users/' + userId), {
     firstName: firstName,
-    lastName: lastName
-  });      // this creates users/1
+    lastName: lastName,
+    email: email,
+    address: address,
+    phone: phone
+  })      
+  .then(() => {
+    console.log("Data saved successfully!");
+  })
+  .catch((error) => {
+    console.error("Error saving data: ", error);
+  });
 }
 
-writeUserData(1, "John", "Doe");
+window.writeUserData = writeUserData;
 
-
-
-
+// writeUserData(1, "John", "Doe", "john.doe@example.com", "123 Main St", "555-1234");
