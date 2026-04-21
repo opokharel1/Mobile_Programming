@@ -2,9 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
 import {getDatabase, set, ref, } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-database.js";
 
-// import {getDatabse, ref, set, get, update, remove} from "https://www.gstatic.com/firebasejs/12.12.0/firebase-database.js";
-
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

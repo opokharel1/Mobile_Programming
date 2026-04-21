@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial;
+    }
+
+    nav {
+        background-color: #868585;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        flex: none;
+    }
+
+    nav ul li a {
+        display: block;
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover {
+        background-color: #111;
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 24px;
+        color: white;
+        padding: 14px;
+        cursor: pointer;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        background: #f1f1f1;
+        padding: 20px;
+        transition: 0.5s;
+        display: none;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+    .sidebar ul li {
+        margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+    }
+
+
+    @media screen and (max-width: 1000px) {
+
+        nav {
+            background-color: #561111;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        .sidebar.show {
+            display: block;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class=" sidebar">
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle("show");
+        }
+    </script>
+
+</body>
+
+</html>
