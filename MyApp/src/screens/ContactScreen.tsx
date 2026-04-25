@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import database from '@react-native-firebase/database';  // ← real Firebase now
 import { COLORS } from '../theme';
 
 const ContactScreen = ({ navigation }) => {
@@ -29,7 +30,7 @@ const ContactScreen = ({ navigation }) => {
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Check nothing is empty
     const isEmpty = Object.values(form).some(v => v.trim() === '');
     if (isEmpty) {
@@ -39,12 +40,22 @@ const ContactScreen = ({ navigation }) => {
 
     setLoading(true);
 
-    // Simulate a network call for now
-    setTimeout(() => {
-      setLoading(false);
-      Alert.alert('Submitted! ✅', 'Your message has been sent. We will get back to you soon.');
+    try {
+      // Save to Firebase — same as your script.js
+      // creates:  users/user_001/{ firstName, lastName, ... }
+      await database()
+        .ref('users/' + form.userId)
+        .set({
+          firstName: form.firstName,
+          lastName:  form.lastName,
+          email:     form.email,
+          address:   form.address,
+          phone:     form.phone,
+        });
 
-      // Clear the form
+      Alert.alert('Submitted! ✅', 'Your details have been saved.');
+
+      // Clear form
       setForm({
         userId:    '',
         firstName: '',
@@ -53,14 +64,19 @@ const ContactScreen = ({ navigation }) => {
         address:   '',
         phone:     '',
       });
-    }, 1000);
+
+    } catch (error) {
+      Alert.alert('Error ❌', 'Something went wrong. Please try again.');
+      console.error('Firebase error:', error);
+    }
+
+    setLoading(false);
   };
 
   return (
     <View style={styles.screen}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
 
-        {/* Header */}
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={styles.backButton}>← Back</Text>
         </TouchableOpacity>
@@ -112,7 +128,6 @@ const ContactScreen = ({ navigation }) => {
 
       </ScrollView>
 
-      {/* Submit Button */}
       <View style={styles.footer}>
         <TouchableOpacity
           style={[styles.submitButton, loading && styles.submitButtonDisabled]}
@@ -127,13 +142,11 @@ const ContactScreen = ({ navigation }) => {
 
     </View>
   );
+
 };
 
 export default ContactScreen;
 
-// ─────────────────────────────────────────────
-// 🔹 Reusable Form Field
-// ─────────────────────────────────────────────
 const FormField = ({ label, placeholder, value, onChangeText, keyboardType = 'default' }) => (
   <View style={styles.fieldWrapper}>
     <Text style={styles.label}>{label}</Text>
@@ -149,9 +162,6 @@ const FormField = ({ label, placeholder, value, onChangeText, keyboardType = 'de
   </View>
 );
 
-// ─────────────────────────────────────────────
-// 🎨 Styles
-// ─────────────────────────────────────────────
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
